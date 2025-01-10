@@ -3,13 +3,17 @@
   flex-direction: column;
   margin: 10px;
   padding: 20px;
-  background-color: #4f4d4c;
+  background-color: #9f9b9b;
   border-radius: 10px;
 }
 
 .general-forms label {
   margin-right: 10px;
-  font-size: 30px;
+  font-size: 20px;
+}
+.general-forms input {
+  height: 20px;
+  width: 100%;
 }
 
 .modal {
