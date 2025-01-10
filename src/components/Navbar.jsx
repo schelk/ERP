@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = ({ showSidebar }) => {
   return (
     <div className={showSidebar ? "sidenav active" : "sidenav"}>
-      <img src="chilliz.png" alt="logo" id="logo" />
+      <img src="chilliz.png" alt="logo" className="logo" />
       <ul>
         <li>
           <Link to="/">
