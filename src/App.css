@@ -1,5 +1,5 @@
 header {
-  background-color: #13262f;
+  background-color: #03191e;
 }
 
 .header-burger {
@@ -18,7 +18,7 @@ header svg:hover {
   cursor: pointer;
 }
 
-#logo {
+.logo {
   width: 60px;
   margin: 10px;
 }
@@ -30,7 +30,7 @@ header svg:hover {
   position: absolute;
   height: 90vh;
   padding: 0px 20px;
-  transition: all 0.5s;
+  transition: all ease-in-out 0.4s;
   left: -100%;
 }
 
@@ -63,6 +63,8 @@ ul li a:active {
   color: black;
   font-size: 60px;
   display: flex;
+  transition: all ease-in-out 0.4s;
+  background-color: #c1cfda;
 }
 
 .main-adjust {
@@ -71,7 +73,8 @@ ul li a:active {
   font-size: 60px;
   display: flex;
   margin-left: 280px;
-  transition: ease 0.65s;
+  transition: all ease-in-out 0.4s;
+  background-color: #c1cfda;
 }
 
 ul li a svg {
