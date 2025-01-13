@@ -4,7 +4,7 @@ header {
 
 .header-burger {
   display: flex;
-  background-color: #13262f;
+  background-color: #03191e;
   color: white;
   padding: 50px;
   height: 40px;
@@ -25,7 +25,7 @@ header svg:hover {
 
 .sidenav {
   width: 240px;
-  background-color: #13262f;
+  background-color: #03191e;
   color: white;
   position: absolute;
   height: 90vh;

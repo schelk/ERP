@@ -7,7 +7,33 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { GrClearOption } from "react-icons/gr";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+
 const AddClientes = ({ modal }) => {
+  const [cliente, setCliente] = useState([]);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [telefone, setTelefone] = useState();
+
+  function handleSubmit(e) {
+    const novoCliente = {
+      Nome: name,
+      Email: email,
+      Senha: senha,
+      Telefone: telefone,
+    };
+
+    setCliente((c) => [...c, novoCliente]);
+
+    setName("");
+    setEmail("");
+    setSenha("");
+    setTelefone("");
+
+    e.PreventDefault();
+  }
+
   return (
     <>
       <div className="form-container">
@@ -16,7 +42,7 @@ const AddClientes = ({ modal }) => {
             <img src="chilliz.png" alt="logo" className="form-logo" />
           </Link>
         </div>
-        <form className="general-forms">
+        <form className="general-forms" onSubmit={handleSubmit}>
           <div className="inputs-container">
             <label htmlFor="name">
               <FaRegUser />
@@ -25,7 +51,12 @@ const AddClientes = ({ modal }) => {
               type="text"
               id="name"
               name="name"
+              value={name}
               placeholder="Nome de usuário"
+              onChange={(e) => {
+                console.log(e.target.value);
+                setName(e.target.value);
+              }}
             />
           </div>
 
@@ -33,7 +64,17 @@ const AddClientes = ({ modal }) => {
             <label htmlFor="email">
               <MdAlternateEmail />
             </label>
-            <input type="email" id="email" name="email" placeholder="E-Mail" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              placeholder="E-Mail"
+              onChange={(e) => {
+                console.log(e.target.value);
+                setEmail(e.target.value);
+              }}
+            />
           </div>
           <div className="inputs-container">
             <label htmlFor="password">
@@ -43,24 +84,37 @@ const AddClientes = ({ modal }) => {
               type="password"
               id="password"
               name="password"
+              value={senha}
               placeholder="Senha"
+              onChange={(e) => {
+                console.log(e.target.value);
+                setSenha(e.target.value);
+              }}
             />
           </div>
           <div className="inputs-container">
-            <label htmlFor="name">
+            <label htmlFor="telefone">
               <BsFillTelephoneFill />{" "}
             </label>
+
             <input
               type="text"
-              id="name"
-              name="name"
+              id="telefone"
+              name="telefone"
+              value={telefone}
               placeholder="Número de telefone"
+              onChange={(e) => {
+                console.log(e.target.value);
+                setTelefone(e.target.value);
+              }}
             />
           </div>
 
           <div className="extra-option">
             <GrClearOption className="clear" />
-            <GiConfirmed type="submit" className="confirm" onClick={modal} />
+            <button id="submit-btn">
+              <GiConfirmed type="submit" className="confirm" />
+            </button>
           </div>
         </form>
         <FaWindowClose onClick={modal} className="close" />
