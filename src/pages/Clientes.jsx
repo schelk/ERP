@@ -7,6 +7,9 @@ import AddClientes from "../components/AddClientes";
 // import AddClientes from "../components/AddClientes";
 
 const Clientes = () => {
+  const [cliente, setCliente] = useState([]);
+  const [id, setId] = useState(1);
+
   const [modal, setModal] = useState(false);
   const DefineModal = () => {
     setModal(!modal);
@@ -16,16 +19,29 @@ const Clientes = () => {
     <div>
       <div className="cadastra-cliente">
         <button onClick={DefineModal}>CADASTRAR CLIENTE</button>
+        <button onClick={() => console.log(cliente)}>AAAAA</button>
       </div>
       {modal && (
         <div className="modal">
-          <AddClientes modal={DefineModal} />
+          <AddClientes
+            modal={DefineModal}
+            cliente={cliente}
+            setCliente={setCliente}
+            id={id}
+            setId={setId}
+          />
         </div>
       )}
 
       <div className="resumo-cliente">
         <h1>Resumo de clientes</h1>
-        <div></div>
+        <div>
+          <ul>
+            {cliente.map((c) => {
+              <li key={c.id}>{c.Nome}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );

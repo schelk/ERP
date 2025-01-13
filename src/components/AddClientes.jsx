@@ -8,30 +8,35 @@ import { GrClearOption } from "react-icons/gr";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const AddClientes = ({ modal }) => {
-  const [cliente, setCliente] = useState([]);
-
+const AddClientes = ({ modal, cliente, setCliente, id, setId }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [telefone, setTelefone] = useState();
+  const [telefone, setTelefone] = useState(0);
 
-  function handleSubmit(e) {
+  function handleSubmit(event) {
+    event.preventDefault();
     const novoCliente = {
+      Id: id,
       Nome: name,
       Email: email,
       Senha: senha,
       Telefone: telefone,
     };
 
-    setCliente((c) => [...c, novoCliente]);
-
+    setCliente([...cliente, novoCliente]);
+    setId(id + 1);
     setName("");
     setEmail("");
     setSenha("");
     setTelefone("");
+  }
 
-    e.PreventDefault();
+  function limpaCampo() {
+    setName("");
+    setEmail("");
+    setSenha("");
+    setTelefone("");
   }
 
   return (
@@ -111,7 +116,7 @@ const AddClientes = ({ modal }) => {
           </div>
 
           <div className="extra-option">
-            <GrClearOption className="clear" />
+            <GrClearOption className="clear" onClick={limpaCampo} />
             <button id="submit-btn">
               <GiConfirmed type="submit" className="confirm" />
             </button>
