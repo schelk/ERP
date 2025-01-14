@@ -36,7 +36,11 @@ const Clientes = () => {
       <div className="resumo-cliente">
         <h1>Resumo de clientes</h1>
         <div>
-          <ul>{cliente.map({ Id, Nome, Senha, Telefone })}</ul>
+          <ul>
+            {cliente.map((cliente) => (
+              <li key={cliente.id}>Nome: {cliente.nome}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

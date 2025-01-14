@@ -17,11 +17,11 @@ const AddClientes = ({ modal, cliente, setCliente, id, setId }) => {
   function handleSubmit(event) {
     event.preventDefault();
     const novoCliente = {
-      Id: id,
-      Nome: name,
-      Email: email,
-      Senha: senha,
-      Telefone: telefone,
+      id: id,
+      nome: name,
+      email: email,
+      senha: senha,
+      telefone: telefone,
     };
 
     setCliente([...cliente, novoCliente]);
