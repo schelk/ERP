@@ -15,7 +15,6 @@ const AddClientes = ({ modal, cliente, setCliente, id, setId }) => {
   const [telefone, setTelefone] = useState(0);
 
   function handleSubmit(event) {
-    event.preventDefault();
     const novoCliente = {
       id: id,
       nome: name,
@@ -39,6 +38,14 @@ const AddClientes = ({ modal, cliente, setCliente, id, setId }) => {
     setTelefone("");
   }
 
+  function validaCampo() {
+    if (name == "") {
+      const wrongName = {
+        color: "red",
+      };
+    }
+  }
+
   return (
     <>
       <div className="form-container">
@@ -47,7 +54,14 @@ const AddClientes = ({ modal, cliente, setCliente, id, setId }) => {
             <img src="chilliz.png" alt="logo" className="form-logo" />
           </Link>
         </div>
-        <form className="general-forms" onSubmit={handleSubmit}>
+        <form
+          className="general-forms"
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleSubmit();
+            validaCampo();
+          }}
+        >
           <div className="inputs-container">
             <label htmlFor="name">
               <FaRegUser />
